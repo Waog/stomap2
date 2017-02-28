@@ -1,11 +1,31 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
-html,
-body {
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif
+// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+// html,
+// body {
+//     height: 100%;
+//     font-family: Arial, Helvetica, sans-serif
+// }
+// a.active {
+//     background-color: gray;
+// }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
-a.active {
-    background-color: gray;
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 150px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    background-color: #f5f5f5;
 }
