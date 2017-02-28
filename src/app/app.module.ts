@@ -29,6 +29,8 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
+import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
+
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -48,7 +50,7 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     AboutComponent,
@@ -60,7 +62,9 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    AlertModule.forRoot(),
+    DatepickerModule.forRoot()
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
@@ -72,7 +76,7 @@ export class AppModule {
   constructor(
     public appRef: ApplicationRef,
     public appState: AppState
-  ) {}
+  ) { }
 
   public hmrOnInit(store: StoreType) {
     if (!store || !store.state) {
@@ -100,7 +104,7 @@ export class AppModule {
     // recreate root elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // save input values
-    store.restoreInputValues  = createInputTransfer();
+    store.restoreInputValues = createInputTransfer();
     // remove styles
     removeNgStyles();
   }
